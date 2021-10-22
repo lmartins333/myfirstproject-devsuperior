@@ -1,15 +1,27 @@
 package com.devsuperior.myfirstproject.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 public class Category implements Serializable {
 	private static final long serialVersionUID = 1L;
+	
 	private Long id;
 	private String nome;
 
+	@JsonIgnore
+	private List<Product> products = new ArrayList<>();
+	
 	public Category() {
 		// TODO Auto-generated constructor stub
+	}
+
+	public List<Product> getProducts() {
+		return products;
 	}
 
 	public Category(Long id, String nome) {
